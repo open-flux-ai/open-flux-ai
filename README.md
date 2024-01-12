@@ -38,4 +38,4 @@ We continuously work on expanding our dataset, especially in areas like Flux com
 # Contributions
 
 We welcome and greatly appreciate contributions, especially in the form of question and answer pairs.
-We are seeking contributions for new datasets centered around knowledge of Flux commands and CR generations.
+We are seeking contributions for new datasets centered around knowledge of [Flux commands](https://github.com/chanwit/open-flux-ai/blob/main/datasets/README.md) and CR generations.
