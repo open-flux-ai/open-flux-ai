@@ -1,0 +1,55 @@
+Q: How to install Flux?
+A: ```
+flux install
+```
+R: ```
+flux uninstall
+```
+
+Q: How to install the latest version of Flux to the cluster?
+A: ```
+flux install
+```
+R: ```
+flux install --version=v2.0.0
+```
+
+Q: How to install the latest version in the flux-system namespace
+A: ```
+flux install --namespace=flux-system
+```
+R: ```
+flux install --namespace=kube-system
+```
+
+Q: How to install the latest version in the dev namespace
+A: ```
+flux install --namespace=dev
+```
+R: ```
+flux install --namespace=flux-system
+```
+
+Q: How to install a specific series of components, say source-controller and kustomize-controller?
+A: ```
+flux install --components="source-controller,kustomize-controller"
+```
+R: ```
+flux install --components="source-controller"
+```
+
+Q: How to install a specific series of components, say kustomize-controller and source-controller?
+A: ```
+flux install --components="source-controller,kustomize-controller"
+```
+R: ```
+flux install --components="kustomize-controller"
+```
+
+Q: How to install all components including the image automation ones?
+A: ```
+flux install --components-extra="image-reflector-controller,image-automation-controller"
+```
+R: ```
+flux install --components-extra="image-reflector-controller,image-automation-controller"
+```
