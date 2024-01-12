@@ -53,3 +53,51 @@ flux install --components-extra="image-reflector-controller,image-automation-con
 R: ```
 flux install --components-extra="image-reflector-controller,image-automation-controller"
 ```
+
+Q: How to install Flux onto tainted Kubernetes nodes, given a toleration key node.kubernetes.io/dedicated-to-flux?
+A: ```
+flux install --toleration-keys=node.kubernetes.io/dedicated-to-flux
+```
+R: ```
+flux install --toleration-keys=dedicated-to-flux
+```
+
+Q: How to dry-run the install process?
+A: ```
+flux install --export | kubectl apply --dry-run=client -f-
+```
+R: ```
+flux install --export --dry-run
+```
+
+Q: How to write install manifests to a file, namely flux-system.yaml?
+A: ```
+flux install --export > flux-system.yaml
+```
+R: ```
+flux install --output > flux-system.yaml
+```
+
+Q: How to write install manifests to a file, namely flux.yaml?
+A: ```
+flux install --export > flux.yaml
+```
+R: ```
+flux install --export > flux-system.yaml
+```
+
+Q: How to install Flux without network policy?
+A: ```
+flux install --network-policy=false
+```
+R: ```
+flux install --network-policy=true
+```
+
+Q: How to install Flux without network policy?
+A: ```
+flux install --network-policy=false
+```
+R: ```
+flux install
+```
