@@ -13,7 +13,7 @@ The goal of this dataset is to cover all Flux CLI commands with 2-3 examples for
 We are actively seeking contributors who can provide high-quality question and answer pairs, as well as their associated rejected or incorrect answers. 
 These contributions are crucial for improving the breadth and depth of Flux-7b's understanding and ability to assist users with Flux-related queries.
 
-# What We're Looking For
+## What We're Looking For
 
 Questions & Answers: Original, well-structured questions about Flux CLI, accompanied by accurate and informative answers.
 Rejected Answers: Incorrect or misleading answers that help the model learn from mistakes and understand common misconceptions.
