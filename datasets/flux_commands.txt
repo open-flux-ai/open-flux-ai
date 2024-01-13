@@ -30,7 +30,7 @@ R: ```
 flux install --namespace=flux-system
 ```
 
-Q: How to install a specific series of components, say source-controller and kustomize-controller?
+Q: How to install a specific set of components, say source-controller and kustomize-controller?
 A: ```
 flux install --components="source-controller,kustomize-controller"
 ```
@@ -38,12 +38,20 @@ R: ```
 flux install --components="source-controller"
 ```
 
-Q: How to install a specific series of components, say kustomize-controller and source-controller?
+Q: How to install a specific set of components, say kustomize-controller and source-controller?
 A: ```
 flux install --components="source-controller,kustomize-controller"
 ```
 R: ```
 flux install --components="kustomize-controller"
+```
+
+Q: How to install a specific set of components, say source-controller, kustomize-controller and helm-controller?
+A: ```
+flux install --components="source-controller,kustomize-controller,helm-controller"
+```
+R: ```
+flux install --components="helm-controller"
 ```
 
 Q: How to install all components including the image automation ones?
