@@ -1,7 +1,7 @@
 # Changelog
 
 ## v0.2
-Released Date: <TBD>
+Released Date: _TBD_
 - Use `filtered_flux_10k` dataset
 - Change the base model to `flux-7b-base`, which is a variant of Mistral 7B v0.1
 - Finetuned with `filtered_flux_10k` dataset
