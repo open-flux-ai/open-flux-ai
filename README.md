@@ -22,15 +22,13 @@ To begin using `flux-7b`, follow this simple command:
 ollama run chanwit/flux-7b:v0.2
 ```
 
-The GGUF files of this model can be obtained from [HuggingFace](https://hf.co/chanwit/flux-7b-v0.2-gguf/tree/main).
-
 We are planning to deliver our models in other formats like Llamafiles and Docker Containers. Please stay tuned.
 
 ## Models
 
-  * `flux-7b-v0.1`: Our first model, built on a variant of Mistral 7B, is designed to provide assistance in Flux, Flagger, GitOps, and SOPS. [GGUF files](https://hf.co/chanwit/flux-7b-v0.1-gguf/tree/main)..
-  * `flux-7b-v0.2`: The second version of `flux-7b`, finetuned from our own base model (flux-base-optimized). This version adds some augmentation to the dataset. [HuggingFace](https://hf.co/chanwit/flux-7b-v0.2-gguf/tree/main).
-  * `flux-base-optimized`: Our base model, hierarchical SLERP merged from 5 Mistral-based models.[HuggingFace repo](https://hf.co/chanwit/flux-base-optimized).
+  * `flux-7b-v0.1`: Our first model, built on a variant of Mistral 7B, is designed to provide assistance in Flux, Flagger, GitOps, and SOPS. [GGUF files](https://hf.co/chanwit/flux-7b-v0.1-gguf/tree/main).
+  * `flux-7b-v0.2`: The second version of `flux-7b`, finetuned from our own base model (flux-base-optimized). This version adds some augmentations to the dataset. [HuggingFace](https://hf.co/chanwit/flux-7b-v0.2-gguf/tree/main).
+  * `flux-base-optimized`: Our base model, hierarchical SLERP merged from 5 Mistral-based models. [HuggingFace repo](https://hf.co/chanwit/flux-base-optimized).
 
 ## Datasets
 
