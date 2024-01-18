@@ -12,23 +12,25 @@ By leveraging the raw data from Kube-7B and applying targeted Embedding techniqu
 Our first major deliverable is `flux-7b`, a model based on Mistral 7B. `flux-7b` currently understands the basic knowledge of Flux, Flagger, GitOps, and SOPS.
 `flux-7b` has demonstrated to be better than ChatGPT in these contexts. See the screenshot.
 
-![g245](https://github.com/chanwit/open-flux-ai/assets/10666/5c2bf254-a1a6-4fde-9b24-8c3fbcda268c)
+![vs_chatgpt](https://github.com/chanwit/open-flux-ai/assets/10666/5c2bf254-a1a6-4fde-9b24-8c3fbcda268c)
 
 ## Getting Started
 
 To begin using `flux-7b`, follow this simple command:
 
 ```
-ollama run chanwit/flux-7b
+ollama run chanwit/flux-7b:v0.2
 ```
 
-The GGUF files of this model can be obtained from [HuggingFace](https://huggingface.co/chanwit/flux-7b-v0.1-gguf/tree/main).
+The GGUF files of this model can be obtained from [HuggingFace](https://huggingface.co/chanwit/flux-7b-v0.2-gguf/tree/main).
 
-We are planning to delivery our models in other formats like Llamafiles and Docker Containers. Please stay tuned.
+We are planning to deliver our models in other formats like Llamafiles and Docker Containers. Please stay tuned.
 
 ## Models
 
-  * `flux-7b`: Our first model, built on Mistral 7B, is designed to provide assistance in Flux, Flagger, GitOps, and SOPS.
+  * `flux-7b-v0.1`: Our first model, built on a variant of Mistral 7B, is designed to provide assistance in Flux, Flagger, GitOps, and SOPS. GGUF files.
+  * `flux-7b-v0.2`: The second version of `flux-7b`, finetuned from our own base model (flux-base-optimized). This version adds some augmentation to the dataset. GGUF files.
+  * `flux-base-optimized`: Our base model, hierarchical SLERP merged from 5 Mistral-based models. Huggingface repo.
 
 ## Datasets
 
