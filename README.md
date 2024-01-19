@@ -10,7 +10,7 @@ Our first focus is on fine-tuning AI models to specialize in key areas such as F
 By leveraging the raw data from Kube-7B and applying targeted Embedding techniques, we aim to create models that are highly proficient in these specific domains.
 
 Our first major deliverable is `flux-7b`, a model based on Mistral 7B. `flux-7b` currently understands the basic knowledge of Flux, Flagger, GitOps, and SOPS.
-`flux-7b` has demonstrated to be better than ChatGPT in these contexts. See the screenshot.
+`flux-7b` has demonstrated to be better than ChatGPT in these contexts. See the screenshot (tested with `flux-7b:v0.1`).
 
 ![vs_chatgpt](https://github.com/chanwit/open-flux-ai/assets/10666/5c2bf254-a1a6-4fde-9b24-8c3fbcda268c)
 
