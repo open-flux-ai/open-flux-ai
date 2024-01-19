@@ -30,6 +30,24 @@ We are planning to deliver our models in other formats like Llamafiles and Docke
   * `flux-7b-v0.2`: The second version of `flux-7b`, finetuned from our own base model (flux-base-optimized). This version adds some augmentations to the dataset. [HuggingFace](https://hf.co/chanwit/flux-7b-v0.2-gguf/tree/main).
   * `flux-base-optimized`: Our base model, hierarchical SLERP merged from 5 Mistral-based models. [HuggingFace repo](https://hf.co/chanwit/flux-base-optimized).
 
+## Prompting
+
+We use Zephyr's tokenizer and prompt, which supports system prompting. In the Zephyr prompt format, the system and user inputs are encapsulated within specific tokens, enhancing clarity and organization. The format appears as follows:
+
+```
+<|system|>\n
+{{ system }}</s>\n
+<|user|>\n
+{{ user }}</s>\n
+<|assistant|>\n
+{{ assistant }}</s>\n
+```
+
+The datasets used for training are also tokenized using this structure. For the current training, the system prompt set for the model is `You are a Flux AI assistant.`
+
+The chat completion endpoint is supported, and when using `Ollama`, there is no need to specify a system-level prompt as the model already incorporates the prompt template. However, if opting for the instruction-based completion endpoint, you must define the prompt yourself, incorporating four specific stop words:
+`</s>`, `<|system|>`, `<|user|>`, and `<|assistant|>`.
+
 ## Datasets
 
 At the beginning, the Open Flux AI project shares its foundational dataset with the Kube-7B project but refines it to focus on specific areas.
