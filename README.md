@@ -32,7 +32,7 @@ We are planning to deliver our models in other formats like Llamafiles and Docke
 
 ## Prompting
 
-We use Zephyr's tokenizer and prompt, which supports system prompting. In the Zephyr prompt format, the system and user inputs are encapsulated within specific tokens, enhancing clarity and organization. The format appears as follows:
+We use Zephyr's tokenizer and prompt, which supports system prompting. In the Zephyr prompt format, the system and user inputs are encapsulated within specific tokens. The format appears as follows:
 
 ```
 <|system|>\n
@@ -45,7 +45,7 @@ We use Zephyr's tokenizer and prompt, which supports system prompting. In the Ze
 
 The datasets used for training are also tokenized using this structure. For the current training, the system prompt set for the model is `You are a Flux AI assistant.`
 
-The chat completion endpoint is supported, and when using `Ollama`, there is no need to specify a system-level prompt as the model already incorporates the prompt template. However, if opting for the instruction-based completion endpoint, you must define the prompt yourself, incorporating four specific stop words:
+The chat completion endpoint is supported, and when using `Ollama`, there is no need to specify a system-level prompt as the model already incorporates the prompt template. However, if opting for the instruction-based completion endpoint, you must define the prompt yourself, including four specific stop words:
 `</s>`, `<|system|>`, `<|user|>`, and `<|assistant|>`.
 
 ## Datasets
