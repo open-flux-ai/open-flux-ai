@@ -1,0 +1,32 @@
+name: build-flux-7b
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - '.github/workflows/build-flux-7b.yaml' # this file
+    - 'flux-7b/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write # needed for ghcr.io access
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build
+      run: |
+        cd flux-7b/docker
+        bash -x ./build.sh
