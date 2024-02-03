@@ -27,6 +27,13 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build
+      id: build
       run: |
         cd flux-7b/docker
         bash -x ./build.sh
+        source ./VERSION
+        echo ::set-output name=VERSION::${VERSION}
+    - name: Scan image
+      uses: anchore/scan-action@v3
+      with:
+        image: "ghcr.io/open-flux-ai/flux-7b:${{ steps.build.outputs.VERSION }}"
