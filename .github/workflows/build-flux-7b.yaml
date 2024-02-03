@@ -33,7 +33,9 @@ jobs:
         bash -x ./build.sh
         source ./VERSION
         echo ::set-output name=VERSION::${VERSION}
+    - name: Download grype
+      uses: anchore/scan-action/download-grype@v3
+      id: grype
     - name: Scan image
-      uses: anchore/scan-action@v3
-      with:
-        image: "ghcr.io/open-flux-ai/flux-7b:${{ steps.build.outputs.VERSION }}"
+      run: |
+        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/flux-7b:${{ steps.build.outputs.VERSION }}
