@@ -29,13 +29,12 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Scan base image
+      run: |
+        source ./VERSION
+        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}
     - name: Build Flux Code 7B
       id: build-flux-code-7b
       run: |
         cd flux-code-7b/docker
         bash -x ./build.sh
-        source ./VERSION
-        echo ::set-output name=VERSION::${VERSION}
-    - name: Scan images
-      run: |
-        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/flux-code-7b:${{ steps.build-flux-code-7b.outputs.VERSION }}
