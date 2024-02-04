@@ -1,12 +1,12 @@
-name: build-flux-7b
+name: build-flux-code-7b
 
 on:
   push:
     branches:
     - main
     paths:
-    - '.github/workflows/build-flux-7b.yaml' # this file
-    - 'flux-7b/**'
+    - '.github/workflows/build-flux-code-7b.yaml' # this file
+    - 'flux-code-7b/**'
   workflow_dispatch: {}
 
 permissions:
@@ -29,13 +29,13 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build Flux 7B
-      id: build-flux-7b
+    - name: Build Flux Code 7B
+      id: build-flux-code-7b
       run: |
-        cd flux-7b/docker
+        cd flux-code-7b/docker
         bash -x ./build.sh
         source ./VERSION
         echo ::set-output name=VERSION::${VERSION}
     - name: Scan images
       run: |
-        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/flux-7b:${{ steps.build-flux-7b.outputs.VERSION }}
+        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/flux-code-7b:${{ steps.build-flux-code-7b.outputs.VERSION }}
