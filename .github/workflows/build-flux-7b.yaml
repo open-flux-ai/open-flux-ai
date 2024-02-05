@@ -31,6 +31,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Scan base image
       run: |
+        cd flux-7b/docker
         source ./VERSION
         ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}
     - name: Build Flux 7B
@@ -38,5 +39,3 @@ jobs:
       run: |
         cd flux-7b/docker
         bash -x ./build.sh
-
-
