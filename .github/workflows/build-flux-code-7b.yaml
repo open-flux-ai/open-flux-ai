@@ -33,7 +33,10 @@ jobs:
       run: |
         cd flux-code-7b/docker
         source ./VERSION
-        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}
+        ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-avx2
+        #
+        # TODO scan the GPU base image
+        # ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-gpu
     - name: Build Flux Code 7B
       id: build-flux-code-7b
       run: |
