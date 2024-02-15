@@ -11,6 +11,11 @@ docker build \
 
 docker push ghcr.io/open-flux-ai/flux-code-7b:${VERSION}
 
+# Clean up to save some spaces
+docker rmi ghcr.io/open-flux-ai/flux-code-7b:${VERSION}
+docker rmi ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-avx2
+docker system prune --all
+
 # Build GPU image
 docker build \
 -f Dockerfile.gpu \
