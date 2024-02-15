@@ -1,4 +1,4 @@
-ARG IMAGE v0.2.32-avx2
+ARG IMAGE v0.2.41-avx2
 
 FROM ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}
 
