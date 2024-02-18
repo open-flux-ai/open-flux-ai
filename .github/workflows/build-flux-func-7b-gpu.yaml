@@ -1,0 +1,44 @@
+name: build-flux-func-7b-gpu
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - '.github/workflows/build-flux-func-7b.yaml' # this file
+    - 'flux-func-7b/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write # needed for ghcr.io access
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download grype
+      uses: anchore/scan-action/download-grype@v3
+      id: grype
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Scan base image
+      run: |
+        cd flux-func-7b/docker
+        # source ./VERSION
+        # ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-avx2
+        #
+        # TODO scan the GPU base image
+        # ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-gpu
+    - name: Build Flux Code 7B
+      id: build-flux-func-7b
+      run: |
+        cd flux-func-7b/docker
+        bash -x ./build-gpu.sh
