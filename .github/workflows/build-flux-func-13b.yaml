@@ -1,12 +1,12 @@
-name: build-flux-func-7b
+name: build-flux-func-13b
 
 on:
   push:
     branches:
     - main
     paths:
-    - '.github/workflows/build-flux-func-7b.yaml' # this file
-    - 'flux-func-7b/**'
+    - '.github/workflows/build-flux-func-13b.yaml' # this file
+    - 'flux-func-13b/**'
   workflow_dispatch: {}
 
 permissions:
@@ -31,14 +31,14 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Scan base image
       run: |
-        cd flux-func-7b/docker
+        cd flux-func-13b/docker
         source ./VERSION
         ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-avx2
         #
         # TODO scan the GPU base image
         # ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-gpu
-    - name: Build Flux Code 7B
-      id: build-flux-func-7b
+    - name: Build Flux Func 13B
+      id: build-flux-func-13b
       run: |
-        cd flux-func-7b/docker
+        cd flux-func-13b/docker
         bash -x ./build.sh
